@@ -45,4 +45,4 @@ $ python3 cswsh.py "wss://echo.websocket.org" -o "http://localhost:8080"
 
 
 ### Support
-If you would like to show some support, please connect with me on [twitter](https://twitter.com/Deepak95Pawar)
+If you would like to show some support, please connect with me on [twitter](https://twitter.com/_dspawar)
