@@ -21,7 +21,7 @@ $ python3 cswsh.py "wss://echo.websocket.org"
 
 #### For socket.io based websocket
 ```bash
-$ python3 cswsh.py "https://example.com/socket.io/" -t 2
+$ python3 cswsh.py "https://example.com/socket.io/" -sio
 ```
 On successful connect, send websocket ping message `2probe` and server will respond with `3probe` as an acknowledgment of the successful connection.
 
