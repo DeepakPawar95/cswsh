@@ -43,6 +43,12 @@ To add custom origin header in the request use `-o` option
 $ python3 cswsh.py "wss://echo.websocket.org" -o "http://localhost:8080"
 ```
 
+#### Disable SSL certificate verification
+If you don't want the tool to verify the server certificate, use `-i`/`--no-cert-check` option
+```bash
+$ python3 cswsh.py "wss://echo.websocket.org" -i
+```
+
 
 ### Support
 If you would like to show some support, please connect with me on [twitter](https://twitter.com/_dspawar)
