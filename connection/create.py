@@ -1,6 +1,7 @@
 import logging
 
 import click
+import ssl
 import websockets
 
 import sockets.socket_io as socket_io
@@ -17,7 +18,7 @@ class Colors:
     UNDERLINE = '\033[4m'
 
 
-async def create_socket(ws_url, http_url, headers, cookies, origin):
+async def create_socket(ws_url, http_url, headers, cookies, origin, no_cert_check):
     """
     Function to create websocket connection and send messages
     :param ws_url: Websocket URL
@@ -25,6 +26,7 @@ async def create_socket(ws_url, http_url, headers, cookies, origin):
     :param headers: Custom headers tuple
     :param cookies: Cookies tuple
     :param origin: Set a custom Origin header
+    :param no_cert_check: Whether not to verify the server certificate
     """
     url = ws_url
     ctr = 0
@@ -41,7 +43,7 @@ async def create_socket(ws_url, http_url, headers, cookies, origin):
         try:
             async with websockets.connect(
                     url,
-                    ssl=True,
+                    ssl=ssl._create_unverified_context() if no_cert_check else True,
                     extra_headers=custom_headers
             ) as websocket:
 
