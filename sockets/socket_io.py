@@ -43,7 +43,9 @@ def get_sid(url, headers, cookies, origin):
             cookies=req_cookies
         )
         response.raise_for_status()
-        sid = json.loads(response.text[4:-4])['sid']
+        payload = response.text
+        payload = payload[payload.find("{"):payload.rfind("}")+1]
+        sid = json.loads(payload)['sid']
         click.echo("[#] Session ID collected...")
 
         ws_proto = "ws://"
