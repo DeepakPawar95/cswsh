@@ -34,8 +34,9 @@ def get_sid(url, headers, cookies, origin, no_cert_check):
 
     if no_cert_check:
         # disable warning caused by disabled certificate verification
-        import urllib3
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        requests.packages.urllib3.disable_warnings(
+            requests.packages.urllib3.exceptions.InsecureRequestWarning
+        )
 
     try:
         response = requests.get(
