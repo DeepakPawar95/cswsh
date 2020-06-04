@@ -44,7 +44,7 @@ $ python3 cswsh.py "wss://echo.websocket.org" -o "http://localhost:8080"
 ```
 
 #### Disable SSL certificate verification
-If you don't want the tool to verify the server certificate, use `-i`/`--no-cert-check` option
+If you don't want the tool to verify the server certificate, use `-i` option
 ```bash
 $ python3 cswsh.py "wss://echo.websocket.org" -i
 ```
