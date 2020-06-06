@@ -5,13 +5,14 @@ import click
 import requests
 
 
-def get_sid(url, headers, cookies, origin):
+def get_sid(url, headers, cookies, origin, no_cert_check):
     """
     Function to get Session ID of a websocket based on socket.io
     :param url: URL of the Websocket based application
     :param headers: Custom headers tuple
     :param cookies: Cookies tuple
     :param origin: Set a custom Origin header
+    :param no_cert_check: Whether not to verify the server certificate
     :return: Websocket URL with session ID
     """
     parsed_url = urlparse(url)
@@ -31,6 +32,12 @@ def get_sid(url, headers, cookies, origin):
     if origin:
         custom_headers['Origin'] = origin
 
+    if no_cert_check:
+        # disable warning caused by disabled certificate verification
+        requests.packages.urllib3.disable_warnings(
+            requests.packages.urllib3.exceptions.InsecureRequestWarning
+        )
+
     try:
         response = requests.get(
             uri,
@@ -40,7 +47,8 @@ def get_sid(url, headers, cookies, origin):
                 't': 'M-LX_vJ'
             },
             headers=custom_headers,
-            cookies=req_cookies
+            cookies=req_cookies,
+            verify=not no_cert_check
         )
         response.raise_for_status()
         payload = response.text
