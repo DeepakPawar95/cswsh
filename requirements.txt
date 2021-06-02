@@ -6,6 +6,6 @@ greenlet==0.4.15
 idna==2.8
 pyfiglet==0.8.post1
 requests==2.22.0
-urllib3==1.25.7
+urllib3==1.26.5
 websocket==0.2.1
 websockets==8.1
