@@ -1,7 +1,7 @@
 certifi==2023.7.22
 chardet==3.0.4
 Click==7.0
-gevent==1.4.0
+gevent==23.9.1
 greenlet==0.4.15
 idna==2.8
 pyfiglet==0.8.post1
